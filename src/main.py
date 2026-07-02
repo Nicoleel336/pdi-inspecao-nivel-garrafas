@@ -51,9 +51,11 @@ def processar_pipeline():
             # 3. Conversão para escala de cinza
             gray = cv2.cvtColor(roi, cv2.COLOR_BGR2GRAY)
             
-            # Salvar imagem em escala de cinza
+            # Salvar imagem em escala de cinza na pasta "cinzas"
             gray_output_name = f"cinza_{filename}"
-            gray_output_path = os.path.join(OUTPUT_INTERMEDIARIOS_DIR, gray_output_name)
+            gray_output_dir = os.path.join(OUTPUT_INTERMEDIARIOS_DIR, "cinzas")
+            os.makedirs(gray_output_dir, exist_ok=True)
+            gray_output_path = os.path.join(gray_output_dir, gray_output_name)
             
             success = cv2.imwrite(gray_output_path, gray)
             if success:
