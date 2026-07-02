@@ -244,7 +244,7 @@ Justificativa:
 
 ---
 
-## 10. Etapa 4 — Filtragem Gaussiana
+## 10. Etapa 4 — Filtragem Mediana
 
 A filtragem espacial será usada para suavizar pequenas variações locais.
 
@@ -259,12 +259,12 @@ Essas variações podem ser causadas por:
 Filtro recomendado:
 
 ```text
-Filtro Gaussiano 5x5
+Filtro Mediana 5x5
 ```
 
 Justificativa:
 
-> O filtro Gaussiano foi escolhido porque suaviza ruídos e pequenas variações de intensidade antes da segmentação, tornando a limiarização mais estável.
+> O filtro Mediana foi escolhido porque preserva melhor as bordas do líquido em comparação com o filtro Gaussiano, além de ser eficaz na eliminação de ruídos do tipo "sal e pimenta", que são comuns em imagens com reflexos e variações de iluminação.
 
 ---
 
