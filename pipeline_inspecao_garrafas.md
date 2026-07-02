@@ -347,46 +347,28 @@ Elemento estruturante retangular 7x7, 9x9 ou 15x5
 
 ---
 
-## 13. Etapa 7 — Detecção da linha superior do líquido
+## 13. Etapa 7 — Detecção robusta da linha superior do líquido
 
-Após obter a máscara binária corrigida pela morfologia, o algoritmo deve detectar a primeira linha horizontal com presença significativa de líquido.
+Após obter a máscara binária corrigida pelas operações morfológicas, o algoritmo deve detectar a linha superior real do líquido.
 
-A técnica recomendada é a **projeção horizontal da máscara**.
+Inicialmente, considerou-se detectar a primeira linha horizontal com pixels brancos. No entanto, durante os testes, observou-se que alguns reflexos escuros presentes na garrafa também eram segmentados como líquido pela limiarização de Otsu invertida. Esses reflexos geravam pequenos resíduos brancos acima da superfície real do líquido.
 
-Para cada linha da imagem, calcula-se a quantidade de pixels brancos:
+Por esse motivo, a detecção da linha do líquido não deve ser feita pelo primeiro pixel branco encontrado nem pelo topo do contorno. Em vez disso, utiliza-se uma abordagem mais robusta baseada na **projeção horizontal da máscara**, considerando:
 
-```text
-Linha 1   → poucos pixels brancos
-Linha 2   → poucos pixels brancos
-Linha 3   → poucos pixels brancos
-Linha 100 → muitos pixels brancos  ← início do líquido
-Linha 101 → muitos pixels brancos
-Linha 102 → muitos pixels brancos
-```
-
-A primeira linha com quantidade suficiente de pixels brancos será considerada:
-
-```text
-y_liquido
-```
-
-Critério sugerido:
-
-```text
-Uma linha pertence ao líquido se possuir pelo menos X% de pixels brancos dentro da ROI.
-```
-
-Exemplo:
-
-```text
-Se largura da ROI = 300 pixels
-E o limiar horizontal = 25%
-Então uma linha deve ter pelo menos 75 pixels brancos para ser considerada líquido.
-```
-
-Esse critério evita que pequenos ruídos sejam confundidos com a linha do líquido.
+1. Apenas a região central da garrafa.
+2. Uma quantidade mínima de pixels brancos por linha.
+3. Um número mínimo de linhas consecutivas válidas.
 
 ---
+
+### 13.1 Uso da região central da máscara
+
+As laterais da garrafa podem conter reflexos, sombras e deformações causadas pela curvatura do plástico. Para reduzir essa interferência, a projeção horizontal é calculada apenas na região central da máscara.
+
+A região utilizada corresponde aproximadamente ao intervalo:
+
+```text
+15% até 85% da largura da ROI
 
 ## 14. Etapa 8 — Calibração dos limites
 
