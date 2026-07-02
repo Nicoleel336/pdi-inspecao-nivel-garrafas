@@ -1,0 +1,17 @@
+arquivo,classe_real,y_detectado,nivel_detectado,classe_prevista
+01_abaixo.jpeg,abaixo,757,0.343,abaixo
+02_abaixo.jpeg,abaixo,646,0.454,abaixo
+03_abaixo.jpeg,abaixo,534,0.566,abaixo
+04_abaixo.jpeg,abaixo,414,0.686,abaixo
+05_abaixo.jpeg,abaixo,350,0.75,abaixo
+06_abaixo.jpeg,abaixo,312,0.788,abaixo
+07_abaixo.jpeg,abaixo,320,0.78,abaixo
+08_limInf.jpeg,ok,287,0.813,ok
+09_noLimite.jpeg,ok,281,0.819,ok
+10_noLimite.jpeg,ok,232,0.868,ok
+11_noLimite.jpeg,ok,240,0.86,ok
+12_noLimite.jpeg,ok,249,0.851,ok
+13_limSup.jpeg,ok,209,0.891,ok
+14_acima(analisar).jpeg,acima,218,0.882,ok
+15_acima.jpeg,acima,182,0.918,acima
+16_acima.jpeg,acima,152,0.948,acima
