@@ -1,0 +1,17 @@
+arquivo,classe_real,uso
+01_abaixo.jpeg,abaixo,teste
+02_abaixo.jpeg,abaixo,teste
+03_abaixo.jpeg,abaixo,teste
+04_abaixo.jpeg,abaixo,teste
+05_abaixo.jpeg,abaixo,teste
+06_abaixo.jpeg,abaixo,teste
+07_abaixo.jpeg,abaixo,teste
+08_limInf.jpeg,ok,calibracao
+09_noLimite.jpeg,ok,teste
+10_noLimite.jpeg,ok,teste
+11_noLimite.jpeg,ok,teste
+12_noLimite.jpeg,ok,teste
+13_limSup.jpeg,ok,calibracao
+14_acima(analisar).jpeg,acima,teste
+15_acima.jpeg,acima,teste
+16_acima.jpeg,acima,teste
