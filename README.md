@@ -28,8 +28,6 @@ O conjunto de dados é composto por **16 fotos** salvas na pasta [dataset/](file
 *   **1 imagem de calibração superior** (`13_limSup.jpeg`): define o nível máximo aceitável.
 *   **3 imagens de nível acima** (`14_acima(analisar).jpeg` a `16_acima.jpeg`)
 
-O arquivo [labels.csv](file:///c:/Users/Nicole Ellen/Documents/Ciencia da Computacao/6 periodo/PDI/pdi-inspecao-nivel-garrafas/labels.csv) contém a marcação real de cada imagem para fins de avaliação e validação das métricas.
-
 ---
 
 ## ⚙️ Pipeline de Processamento
@@ -114,25 +112,4 @@ python src/classificacao.py
 python src/avaliacao.py
 ```
 
----
-
-## 📊 Resultados e Avaliação
-
-Após processar as imagens de teste, o sistema alcançou as seguintes métricas de desempenho:
-
-*   **Acurácia Multiclasse:** **93.75%** (15 de 16 imagens classificadas corretamente)
-*   **Acurácia Binária (Conformidade):** **93.75%** (15 de 16 imagens classificadas corretamente)
-
-### Matriz de Confusão Multiclasse
-O único caso de erro foi a imagem `14_acima(analisar).jpeg` (caso limítrofe/borda), que foi rotulada como **Acima** no dataset real, mas classificada como **OK** pelo sistema devido à margem de tolerância.
-
-```text
-              Previsão
-            | Abaixo |  OK  | Acima |
-Real  Abaixo|   7    |   0  |   0   |
-      OK    |   0    |   6  |   0   |
-      Acima |   0    |   1  |   2   |
-```
-
-O gráfico contendo as matrizes de confusão geradas pode ser visualizado em [matriz_confusao.png](file:///c:/Users/Nicole Ellen/Documents/Ciencia da Computacao/6 periodo/PDI/pdi-inspecao-nivel-garrafas/matriz_confusao.png).
 
